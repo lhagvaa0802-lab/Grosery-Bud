@@ -47,19 +47,19 @@ body {
   width: 180px;
 }
 .edit-btn {
-  background-color:  rgb(179, 255, 0);
+  
   color: #050708;
   border-radius: 4px;
   width: 40px;
   height: 20px;
 }
 .clear{
-  background-color: rgb(179, 255, 0);
+  
   color: #050708;
   border-radius: 4px;
 }
 .delete-btn{
-  background-color: rgb(179, 255, 0);
+  
   color: #050708;
   border-radius: 4px;
   width: 50px;
