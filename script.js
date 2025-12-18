@@ -38,10 +38,8 @@ const createItem = (item) => {
   return ` <div class="box">
           <p>${item.text}</p>
           <div>
-            <input type="checkbox" id="${item.id}" ${
-    item.isChecked && "checked"
-  } />
-            <button onclick="deleteBtn(${item.id})">Delete</button>
+            <input type="checkbox" id="${item.id}" ${item.isChecked && "checked"} onchange="updateItems(${item.id})"/>
+            <button   id="${item.id}" ${item.isChecked && "checked"} onclick="deleteBtn(${item.id})">Delete</button>
           </div>
         </div>`;
 };
@@ -52,16 +50,37 @@ const clearInput = () => {
 const updateItems = (id) => {
   const updatedItems = items.map((item) => {
     if (item.id === id) {
-      return { ...item, isCompleted: !item.isCompleted };
+      return { ...item, isChecked: !item.isChecked };
+     
     } else {
       return item;
     }
   });
+  console.log(updatedItems)
 
   items = updatedItems;
   renderItems(updatedItems);
 };
 
+
+const deleteBtn = () => {
+
+  const deletedItems = items.filter((item) => !item.isChecked===true);
+  items = deletedItems;
+  
+  renderItems(deletedItems)
+}
+
+const clear=()=>{
+
+   const clearedItems = items.filter((item) => !item.isChecked === true);
+   items = clearedItems;
+
+   renderItems(clearedItems);
+}
+
+
+
 submitBtn.addEventListener("click", submit);
-clearButton.addEventListener("click", updateItems);
+clearButton.addEventListener("click", clear);
 console.log(items);
