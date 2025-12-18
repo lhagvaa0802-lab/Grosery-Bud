@@ -20,9 +20,10 @@ body {
   justify-content: space-between;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 377px;
-}
+  width: 300px;
+  border-radius: 16px;
+  background-color:bisque
+  }
 .clear {
   margin: 20px;
   width: 100px;
@@ -42,5 +43,30 @@ body {
 .box {
   display: flex;
   justify-content: space-between;
+  padding: 8px;
   width: 180px;
+}
+.edit-btn {
+  background-color:  rgb(179, 255, 0);
+  color: #050708;
+  border-radius: 4px;
+  width: 40px;
+  height: 20px;
+}
+.clear{
+  background-color: rgb(179, 255, 0);
+  color: #050708;
+  border-radius: 4px;
+}
+.delete-btn{
+  background-color: rgb(179, 255, 0);
+  color: #050708;
+  border-radius: 4px;
+  width: 50px;
+  height: 20px;
+}
+.buttons{
+  display: flex;
+  gap: 10px;
+
 }

@@ -12,22 +12,22 @@ const submit = () => {
   const text = inputBox.value
   if (!text) return;
 
-
-
-  
   const item = { id: itemId, text: text };
+  
   items.push(item);
+ console.log(items);
   itemId++;
   inputBox.value = "";
-  renderItems();
+  renderItems(items);
 };
 
 
-const renderItems = () => {
+const renderItems = (itemsArr) => {
   let html = "";
-  items.forEach((item) => {
-    html += createItem(item);
-  });
+ itemsArr.forEach((item) => {
+   html += createItem(item);
+   console.log(html);
+ });
   itemListEl.innerHTML = html;
 };
 
@@ -35,9 +35,9 @@ const renderItems = () => {
 const createItem = (item) => `
   <div class="box">
     <p>${item.text}</p>
-    <div>
-      <button onclick="startEdit(${item.id})">Edit</button>
-      <button onclick="deleteItem(${item.id})">Delete</button>
+    <div class=buttons>
+      <button class=edit-btn onclick="startEdit(${item.id})">Edit</button>
+      <button class=delete-btn onclick="deleteItem(${item.id})">Delete</button>
     </div>
   </div>
 `;
@@ -46,14 +46,19 @@ const createItem = (item) => `
 
 const deleteItem = (id) => {
   items = items.filter((item) => item.id !== id);
-  renderItems();
+  renderItems(items);
 };
 
 
 const clear = () => {
   items = [];
-  renderItems();
+  renderItems(items);
 };
+const startEdit = (id) =>{
+     const item = items.find((item) => item.id === id);
+     inputBox.value = item.text;
+     deleteItem(id)
+}
 
 
 submitBtn.addEventListener("click", submit);
