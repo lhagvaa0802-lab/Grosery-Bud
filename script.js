@@ -39,7 +39,7 @@ const createItem = (item) => {
           <p>${item.text}</p>
           <div>
             <input type="checkbox" id="${item.id}" ${item.isChecked && "checked"} onchange="updateItems(${item.id})"/>
-            <button   id="${item.id}" ${item.isChecked && "checked"} onclick="deleteBtn(${item.id})">Delete</button>
+            <button   onclick="deleteBtn(${item.id})">Delete</button>
           </div>
         </div>`;
 };
@@ -63,9 +63,9 @@ const updateItems = (id) => {
 };
 
 
-const deleteBtn = () => {
+const deleteBtn = (Id) => {
 
-  const deletedItems = items.filter((item) => !item.isChecked===true);
+  const deletedItems = items.filter((item) => !item.isChecked===true );
   items = deletedItems;
   
   renderItems(deletedItems)
