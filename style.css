@@ -22,14 +22,15 @@ body {
   justify-content: center;
   width: 300px;
   border-radius: 16px;
-  background-color:bisque
-  }
+  background-color: bisque;
+}
 .clear {
   margin: 20px;
   width: 100px;
   height: 30px;
 }
 .input-group {
+  display: flex;
   margin: 20px;
 }
 
@@ -47,26 +48,25 @@ body {
   width: 180px;
 }
 .edit-btn {
-  
   color: #050708;
   border-radius: 4px;
   width: 40px;
   height: 20px;
 }
-.clear{
-  
+.clear {
   color: #050708;
   border-radius: 4px;
 }
-.delete-btn{
-  
+.delete-btn {
   color: #050708;
   border-radius: 4px;
   width: 50px;
   height: 20px;
 }
-.buttons{
+.buttons {
   display: flex;
   gap: 10px;
-
+}
+.save {
+  display: none;
 }
