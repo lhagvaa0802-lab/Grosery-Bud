@@ -50,27 +50,28 @@ const clear = () => {
   items = [];
   renderItems(items);
 };
-
+const findedItem = [];
 const startEdit = (id) => {
-  console.log(id);
   const item = items.find((item) => item.id === id);
+  findedItem.push(item);
   inputBox.value = item.text;
   submitBtn.style.display = "none";
   saveBtn.style.display = "block";
 };
 
-const save = (id) => {
-  console.log(id);
-  const updateItems = items.map((item) => {
-    if (item.id === id) {
+const save = () => {
+  const updatedItems = items.map((item) => {
+    if (item.id === findedItem[0].id) {
       return { ...item, text: inputBox.value };
     } else {
       return item;
     }
   });
-  console.log(inputBox.value);
-  items = updateItems;
-  renderItems(updateItems);
+  renderItems(updatedItems);
+  findedItem.shift();
+  submitBtn.style.display = "block";
+  saveBtn.style.display = "none";
+  inputBox.value = "";
 };
 
 submitBtn.addEventListener("click", submit);
