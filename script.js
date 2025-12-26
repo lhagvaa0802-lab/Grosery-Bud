@@ -77,4 +77,3 @@ const save = () => {
 submitBtn.addEventListener("click", submit);
 clearButton.addEventListener("click", clear);
 saveBtn.addEventListener("click", save);
-save;
